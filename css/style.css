@@ -1,0 +1,11 @@
+h3 {
+	font-weight: 300
+}
+
+#mapid { height: 400px; }
+
+#gallery { height: 400px; }
+
+img {
+	margin: 10px;
+}
