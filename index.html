@@ -11,6 +11,7 @@
 
 		<!-- D3: data visualization-->
 		<script src="https://d3js.org/d3.v6.min.js"></script>
+		<!-- <script src="https://d3js.org/d3-scale.v3.min.js"></script> -->
 
 		<!-- Lightbox: image gallery -->
 		<link rel="stylesheet" type="text/css" href = "css/lightbox.css">
@@ -42,12 +43,21 @@
 				<h3 id = "galleryTitle"><!--populated by map.js--></h3>
 				<div id = "gallery"></div>
 			</div>
+			<div class ="row py-3 bg-light border-top">
+				<h3>All Photos Timeline</h3>
+				<div id = "timeline"></div>
+			</div>
+
+			<div class ="row py-3 bg-light border-top">
+				<div id = "hovertest"></div>
+			</div>
 
 		</div>
 
 		<!-- Custom Javascript -->
 		<script src="js/map.js"></script>
-		<script src="js/gallery.js"></script>
+		<script src="js/timeline.js"></script>
+
 
 	</body>
 </html>

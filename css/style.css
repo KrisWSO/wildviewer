@@ -4,8 +4,11 @@ h3 {
 
 #gallery {
 	overflow-x: auto;
-	height: 200px;
 	white-space:nowrap;
+}
+
+#hovertest {
+	height: 500px;
 }
 
 img {
@@ -14,6 +17,8 @@ img {
 }
 
 img:hover {
-	filter: grayscale(100%);
 	transform:scale(1.2);
 }
+
+.axis { font: 14px sans-serif; }
+.axis text {text-anchor: start}
