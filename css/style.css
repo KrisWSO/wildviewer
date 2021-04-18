@@ -2,10 +2,18 @@ h3 {
 	font-weight: 300
 }
 
-#mapid { height: 400px; }
-
-#gallery { height: 400px; }
+#gallery {
+	overflow-x: auto;
+	height: 200px;
+	white-space:nowrap;
+}
 
 img {
 	margin: 10px;
+	transition: 1s;
+}
+
+img:hover {
+	filter: grayscale(100%);
+	transform:scale(1.2);
 }

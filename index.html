@@ -26,43 +26,24 @@
 	</head>
 
 	<body>
-		<div class="container py-3 px-3">
-			<h1 class="display-5">Little Lake Wildlife Viewer</h1>
-			<p class="lead">Wildlife behavior captured by game cameras at Little Lake</p>
-		</div>
-		<div class="container py-3 px-3">
-			<div class="row">
-				<div class="col-md-6 py-3 px-3">
-					<h3>Camera Locations</h3>
-					<div id = "mapid"></div> <!-- note mapid has defined hieght in style.css file -->
-				</div>
-				<div class="col-md-6 py-3 px-3">
-					<h3 id = "galleryTitle"><!--populated by map.js--></h3>
-					<div id = "gallery" class="overflow-auto">
-					</div>
-				</div>
-			</div>
-		</div>
+		<div class="container">
 
-		<!--
-		<div class="container py-3 px-3">
-			<div class="row">
-				<div class="col-12 py-3 px-3">
-					<h3>Location Timeline</h3>
-					<p>Coming soon!</p>
-				</div>
+			<div class = "row py-3">
+				<h1 class="display-5">Little Lake Wildlife Viewer</h1>
+				<p class="lead">Wildlife behavior captured by game cameras at Little Lake</p>
 			</div>
-		</div>
 
-		<div class="container py-3 px-3">
-			<div class="row">
-				<div class="col-12 py-3 px-3">
-					<h3>Selected Species Summary</h3>
-					<p>Coming soon!</p>
-				</div>
+			<div class = "row">
+				<div id = "mapid"></div> <!-- note mapid has defined hieght in style.css file -->
+				<script>$('#mapid').height($(window).height() - 400)</script>
 			</div>
+
+			<div class = "row py-3 bg-light">
+				<h3 id = "galleryTitle"><!--populated by map.js--></h3>
+				<div id = "gallery"></div>
+			</div>
+
 		</div>
-		-->
 
 		<!-- Custom Javascript -->
 		<script src="js/map.js"></script>

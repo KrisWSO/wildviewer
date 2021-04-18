@@ -48,7 +48,7 @@ var locations = [{
     },
     "geometry": {
         "type": "Point",
-        "coordinates": [-75.13521378, 44.35985534]
+        "coordinates": [-75.13519678086112, 44.359852852866034]
     }
 }, {
     "type": "Feature",
@@ -58,17 +58,7 @@ var locations = [{
     },
     "geometry": {
         "type": "Point",
-        "coordinates": [-75.13121226643065, 44.35936010741654]
-    } 
-}, {
-    "type": "Feature",
-    "properties": {
-        "locationID": "3",
-        "name": "Middle Dam",
-    },
-    "geometry": {
-        "type": "Point",
-        "coordinates": [-75.13297259, 44.36029826]
+        "coordinates": [-75.131191143284, 44.35934570496737]
     } 
 }];
 
@@ -129,63 +119,333 @@ function clearSelection() {
 var imageList = [
   {
     "location": "Back Bay Dam",
-    "image": "IMG_0001.JPG",
-    "species": "plant",
-    "timestamp": "3/13/2021 18:13"
+    "image": "IMG_0017.JPG",
+    "species": "Fisher",
+    "timestamp": "4/3/2021 6:10"
   },
   {
     "location": "Back Bay Dam",
-    "image": "IMG_0002.JPG",
-    "species": "plant",
-    "timestamp": "4/1/2021 9:59"
-  },
-  {
-    "location": "Back Bay Dam",
-    "image": "IMG_0003.JPG",
-    "species": "dog",
-    "timestamp": "4/1/2021 9:59"
-  },
-  {
-    "location": "Back Bay Dam",
-    "image": "IMG_0004.JPG",
-    "species": "dog",
-    "timestamp": "4/1/2021 9:59"
-  },
-  {
-    "location": "Back Bay Dam",
-    "image": "IMG_0005.JPG",
-    "species": "dog",
-    "timestamp": "4/1/2021 9:59"
-  },
-  {
-    "location": "Middle Dam",
     "image": "IMG_0018.JPG",
-    "species": "dog",
-    "timestamp": "4/1/2021 9:59"
+    "species": "Fisher",
+    "timestamp": "4/3/2021 6:10"
   },
   {
-    "location": "Middle Dam",
+    "location": "Back Bay Dam",
     "image": "IMG_0019.JPG",
-    "species": "dog",
-    "timestamp": "4/1/2021 9:59"
+    "species": "Fisher",
+    "timestamp": "4/3/2021 7:01"
   },
   {
-    "location": "Middle Dam",
+    "location": "Back Bay Dam",
     "image": "IMG_0020.JPG",
-    "species": "dog",
-    "timestamp": "4/1/2021 9:59"
+    "species": "Fisher",
+    "timestamp": "4/3/2021 8:33"
+  },
+  {
+    "location": "Back Bay Dam",
+    "image": "IMG_0023.JPG",
+    "species": "Fisher",
+    "timestamp": "4/5/2021 12:46"
+  },
+  {
+    "location": "Back Bay Dam",
+    "image": "IMG_0024.JPG",
+    "species": "Fisher",
+    "timestamp": "4/5/2021 12:58"
+  },
+  {
+    "location": "Back Bay Dam",
+    "image": "IMG_0139.JPG",
+    "species": "Otter",
+    "timestamp": "4/7/2021 13:32"
+  },
+  {
+    "location": "Back Bay Dam",
+    "image": "IMG_0140.JPG",
+    "species": "Otter",
+    "timestamp": "4/7/2021 13:32"
+  },
+  {
+    "location": "Back Bay Dam",
+    "image": "IMG_0142.JPG",
+    "species": "Otter",
+    "timestamp": "4/7/2021 13:36"
+  },
+  {
+    "location": "Back Bay Dam",
+    "image": "IMG_0208.JPG",
+    "species": "Porcupine",
+    "timestamp": "4/7/2021 18:45"
+  },
+  {
+    "location": "Back Bay Dam",
+    "image": "IMG_0209.JPG",
+    "species": "Porcupine",
+    "timestamp": "4/7/2021 18:45"
+  },
+  {
+    "location": "Back Bay Dam",
+    "image": "IMG_0210.JPG",
+    "species": "Porcupine",
+    "timestamp": "4/7/2021 18:45"
+  },
+  {
+    "location": "Back Bay Dam",
+    "image": "IMG_0211.JPG",
+    "species": "Racoon",
+    "timestamp": "4/8/2021 1:15"
+  },
+  {
+    "location": "Back Bay Dam",
+    "image": "IMG_0212.JPG",
+    "species": "Otter",
+    "timestamp": "4/8/2021 5:42"
+  },
+  {
+    "location": "Back Bay Dam",
+    "image": "IMG_0213.JPG",
+    "species": "Otter",
+    "timestamp": "4/8/2021 5:42"
+  },
+  {
+    "location": "Back Bay Dam",
+    "image": "IMG_0214.JPG",
+    "species": "Deer",
+    "timestamp": "4/8/2021 7:24"
+  },
+  {
+    "location": "Back Bay Dam",
+    "image": "IMG_0215.JPG",
+    "species": "Deer",
+    "timestamp": "4/8/2021 7:25"
+  },
+  {
+    "location": "Back Bay Dam",
+    "image": "IMG_0216.JPG",
+    "species": "Deer",
+    "timestamp": "4/8/2021 7:25"
+  },
+  {
+    "location": "Back Bay Dam",
+    "image": "IMG_0470.JPG",
+    "species": "Snapping Turtle",
+    "timestamp": "4/8/2021 13:11"
+  },
+  {
+    "location": "Back Bay Dam",
+    "image": "IMG_0471.JPG",
+    "species": "Snapping Turtle",
+    "timestamp": "4/8/2021 13:11"
+  },
+  {
+    "location": "Back Bay Dam",
+    "image": "IMG_0527.JPG",
+    "species": "Turtle",
+    "timestamp": "4/8/2021 13:34"
+  },
+  {
+    "location": "Back Bay Dam",
+    "image": "IMG_0528.JPG",
+    "species": "Turtle",
+    "timestamp": "4/8/2021 13:34"
+  },
+  {
+    "location": "Back Bay Dam",
+    "image": "IMG_0529.JPG",
+    "species": "Turtle",
+    "timestamp": "4/8/2021 13:34"
+  },
+  {
+    "location": "Back Bay Dam",
+    "image": "IMG_0530.JPG",
+    "species": "Turtle",
+    "timestamp": "4/8/2021 13:35"
+  },
+  {
+    "location": "Back Bay Dam",
+    "image": "IMG_0546.JPG",
+    "species": "Turtle",
+    "timestamp": "4/8/2021 13:44"
+  },
+  {
+    "location": "Back Bay Dam",
+    "image": "IMG_0547.JPG",
+    "species": "Turtle",
+    "timestamp": "4/8/2021 13:44"
+  },
+  {
+    "location": "Back Bay Dam",
+    "image": "IMG_0548.JPG",
+    "species": "Turtle",
+    "timestamp": "4/8/2021 13:44"
+  },
+  {
+    "location": "Back Bay Dam",
+    "image": "IMG_0549.JPG",
+    "species": "Turtle",
+    "timestamp": "4/8/2021 13:44"
+  },
+  {
+    "location": "Back Bay Dam",
+    "image": "IMG_0550.JPG",
+    "species": "Turtle",
+    "timestamp": "4/8/2021 13:44"
+  },
+  {
+    "location": "Back Bay Dam",
+    "image": "IMG_0551.JPG",
+    "species": "Turtle",
+    "timestamp": "4/8/2021 13:45"
+  },
+  {
+    "location": "Back Bay Dam",
+    "image": "IMG_0552.JPG",
+    "species": "Turtle",
+    "timestamp": "4/8/2021 13:45"
+  },
+  {
+    "location": "Back Bay Dam",
+    "image": "IMG_0553.JPG",
+    "species": "Turtle",
+    "timestamp": "4/8/2021 13:45"
+  },
+  {
+    "location": "Back Bay Dam",
+    "image": "IMG_0654.JPG",
+    "species": "Snapping Turtle",
+    "timestamp": "4/8/2021 15:44"
+  },
+  {
+    "location": "Back Bay Dam",
+    "image": "IMG_0655.JPG",
+    "species": "Snapping Turtle",
+    "timestamp": "4/8/2021 15:45"
+  },
+  {
+    "location": "Back Bay Dam",
+    "image": "IMG_0668.JPG",
+    "species": "Porcupine",
+    "timestamp": "4/8/2021 23:13"
+  },
+  {
+    "location": "Back Bay Dam",
+    "image": "IMG_0669.JPG",
+    "species": "Porcupine",
+    "timestamp": "4/8/2021 23:13"
+  },
+  {
+    "location": "Back Bay Dam",
+    "image": "IMG_0670.JPG",
+    "species": "Porcupine",
+    "timestamp": "4/9/2021 2:14"
+  },
+  {
+    "location": "Back Bay Dam",
+    "image": "IMG_0671.JPG",
+    "species": "Porcupine",
+    "timestamp": "4/9/2021 2:53"
+  },
+  {
+    "location": "Back Bay Dam",
+    "image": "IMG_0672.JPG",
+    "species": "Porcupine",
+    "timestamp": "4/9/2021 2:54"
+  },
+  {
+    "location": "Back Bay Dam",
+    "image": "IMG_0673.JPG",
+    "species": "Porcupine",
+    "timestamp": "4/9/2021 2:58"
+  },
+  {
+    "location": "Back Bay Dam",
+    "image": "IMG_0674.JPG",
+    "species": "Porcupine",
+    "timestamp": "4/9/2021 2:58"
+  },
+  {
+    "location": "Back Bay Dam",
+    "image": "IMG_0675.JPG",
+    "species": "Porcupine",
+    "timestamp": "4/9/2021 3:13"
+  },
+  {
+    "location": "Back Bay Dam",
+    "image": "IMG_0676.JPG",
+    "species": "Porcupine",
+    "timestamp": "4/9/2021 3:13"
+  },
+  {
+    "location": "Back Bay Dam",
+    "image": "IMG_0677.JPG",
+    "species": "Porcupine",
+    "timestamp": "4/9/2021 3:14"
+  },
+  {
+    "location": "Back Bay Dam",
+    "image": "IMG_0679.JPG",
+    "species": "Racoon",
+    "timestamp": "4/9/2021 4:40"
+  },
+  {
+    "location": "Back Bay Dam",
+    "image": "IMG_0680.JPG",
+    "species": "Racoon",
+    "timestamp": "4/9/2021 4:40"
+  },
+  {
+    "location": "Back Bay Dam",
+    "image": "IMG_0681.JPG",
+    "species": "Otter",
+    "timestamp": "4/9/2021 6:27"
+  },
+  {
+    "location": "Back Bay Dam",
+    "image": "IMG_0739.JPG",
+    "species": "Otter",
+    "timestamp": "4/9/2021 13:31"
+  },
+  {
+    "location": "Back Bay Dam",
+    "image": "IMG_0754.JPG",
+    "species": "Racoon",
+    "timestamp": "4/9/2021 20:51"
+  },
+  {
+    "location": "Back Bay Dam",
+    "image": "IMG_0755.JPG",
+    "species": "Racoon",
+    "timestamp": "4/9/2021 20:51"
+  },
+  {
+    "location": "Back Bay Dam",
+    "image": "IMG_0756.JPG",
+    "species": "Racoon",
+    "timestamp": "4/9/2021 21:43"
+  },
+  {
+    "location": "Back Bay Dam",
+    "image": "IMG_0757.JPG",
+    "species": "Racoon",
+    "timestamp": "4/9/2021 21:43"
+  },
+  {
+    "location": "Back Bay Dam",
+    "image": "IMG_0758.JPG",
+    "species": "Racoon",
+    "timestamp": "4/9/2021 21:43"
   },
   {
     "location": "Mink Falls Dam",
-    "image": "IMG_0057.JPG",
-    "species": "plant",
-    "timestamp": "4/1/2021 9:59"
+    "image": "IMG_0010.JPG",
+    "species": "Racoon",
+    "timestamp": "4/3/2021 1:08"
   },
   {
     "location": "Mink Falls Dam",
-    "image": "IMG_0076.JPG",
-    "species": "plant",
-    "timestamp": "4/1/2021 9:59"
+    "image": "IMG_0035.JPG",
+    "species": "Racoon",
+    "timestamp": "4/8/2021 21:21"
   }
 ]
 
@@ -195,7 +455,7 @@ document.onload = buildGallery();
 
 function buildGallery() {
 	if (selectedLocationID == null) {
-		document.getElementById('gallery').innerHTML = "Select a location on the map to view images."
+		document.getElementById('gallery').innerHTML = "Select a location on the map to view images.";
 		document.getElementById('galleryTitle').innerHTML = "Photos from Selected Location"
 	} else {
 
@@ -205,11 +465,9 @@ function buildGallery() {
 			return item.location == selectedLocationName
 		});
 
-		var galleryDiv = $('#gallery')
-
 		$.each(selectedImages, function() {
 			var imgPath = "images\\wildlife\\"+this.location+'\\'+this.image
-			$("#gallery").append('<a href =\"'+imgPath+'\" data-lightbox="gallery"><img width = 200px src =\"'+imgPath+'\"></a>');
+			$("#gallery").append('<a href =\"'+imgPath+'\" data-lightbox="gallery"><img width = 250px src =\"'+imgPath+'\"></a>');
 		})
 
 		document.getElementById('galleryTitle').innerHTML = "Photos from " + selectedLocationName
