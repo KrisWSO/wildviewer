@@ -16,24 +16,7 @@ var svg = d3.select('#timeline').append('svg')
 var speciesCount = d3.rollup(imageList, x => x.length, d => d.species);
 
 
-//creating axis
-var timeAxisScale = d3.scaleTime()
-	.domain([new Date("2021-04-01"), new Date("2021-04-09")])
-	.range([0, width - margin.left - margin.right])
-	.nice()
-	
-
-// x axis
-svg.append("g")
-	.attr("transform", "translate(0,"+ height + ")")      // This controls the vertical position of the Axis
-	.call(
-		d3.axisBottom(timeAxisScale)
-				.tickFormat(d3.timeFormat("%b-%d"))
-		)
-
-//Adding circles to timeline
-
-// develop timeline scale
+// parsing time data
 var parseDate = d3.timeParse("%m/%d/%Y %H:%M");
 
 imageList.forEach(function(dataPoint) {
@@ -41,9 +24,18 @@ imageList.forEach(function(dataPoint) {
     dataPoint.timestamp = parseDate(dataPoint.timestamp);
 });
 
+//creating scale for axis and to position points
+const timeScale = d3.scaleTime()
+	.range([0, width - margin.left - margin.right])
+	.domain(d3.extent(imageList, d => d.timestamp))
+	.nice();
 
-const timeScale = d3.scaleTime().range([0, width - margin.left - margin.right]).domain(d3.extent(imageList, d => d.timestamp));
-
+// adding x axis to dom
+svg.append("g")
+	.attr("transform", "translate(0,"+ height + ")")      // This controls the vertical position of the Axis
+	.call(
+		d3.axisBottom(timeScale)
+		)
 
 // color scale
 const colorScale = d3.scaleOrdinal()
@@ -52,8 +44,8 @@ const colorScale = d3.scaleOrdinal()
 
 // force simulation
 let simulation = d3.forceSimulation(imageList)
-	.force("x", d3.forceX(d => timeScale(d.timestamp)).strength(3))
-	.force("y", d3.forceY(d => height/2).strength(3))
+	.force("x", d3.forceX(d => timeScale(d.timestamp)).strength(5))
+	.force("y", d3.forceY((height-margin.bottom)/2).strength(1))
     .force("collide", d3.forceCollide(8))
 	.stop()
 
@@ -74,6 +66,7 @@ var points = svg.selectAll("a")
 		.attr("cy", height/2)
 		.attr("fill", d => colorScale(d.species))
 		.attr("stroke", d => d3.rgb(colorScale(d.species)).darker(.1).formatHex())
+		.attr("stroke-width", 1)
 
 points.transition()
 		.duration(3000)
