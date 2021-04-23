@@ -51,49 +51,40 @@ const colorScale = d3.scaleOrdinal()
 
 // force simulation
 let simulation = d3.forceSimulation(imageList)
-	.force("x", d3.forceX(function(d) {
-		return timeScale(d.timestamp);
-	}).strength(1))
-    .force("collide", d3.forceCollide(3))
-	.on("tick",updateNetwork)
+	.force("x", d3.forceX(d => timeScale(d.timestamp)).strength(3))
+	.force("y", d3.forceY(d => height/2).strength(3))
+    .force("collide", d3.forceCollide(8))
+	.stop()
 
-function updateNetwork(){
-	d3.selectAll("circle")
-		.attr("cx",d => d.x)
-		.attr("cy",d => d.y + 50)
-	}
+for (let i = 0; i < imageList.length; ++i) {
+	simulation.tick(10);
+}
 
-	
-// make circles
-svg.selectAll("a")
+// make circles, simulation applied through imageList
+var points = svg.selectAll("a")
 	.data(imageList)
 	.enter()
 	.append("svg:a")
-		.attr("xlink:href", data => "images/wildlife/" + data.location + "//" + data.image)
+		.attr("xlink:href", d => "images/wildlife/" + d.location + "//" + d.image)
 		.attr("data-lightbox", "timelineImages")
 	.append('circle')
 		.attr("r", 6)
 		.attr("cx", 0)
-		.attr("fill", data => colorScale(data.species))
-		.attr("stroke", data => d3.rgb(colorScale(data.species)).darker(1).formatHex())
-		.transition()
-		.duration(2000)
-		.attr("cx", data => timeScale(data.timestamp))
-		.on("mouseover", handleMouseOver);
+		.attr("cy", height/2)
+		.attr("fill", d => colorScale(d.species))
+		.attr("stroke", d => d3.rgb(colorScale(d.species)).darker(.1).formatHex())
 
+points.transition()
+		.duration(3000)
+		.attr("cx", d => d.x)
+		.attr("cy", d => d.y)
+
+points.on("mouseover", handleMouseOver);
 
 function handleMouseOver() {
 	var thisCircle = d3.select(this.parentNode).datum();
 
 	console.log(thisCircle.image);
-
-	d3.selectAll("circle")
-		.attr("r", 10)
-
-	d3.select(this)
-		.transition()
-        .duration(500)
-		.attr("r", 15)
 
 	d3.select('#hoverimage')
 		.remove()
