@@ -41,12 +41,13 @@ imageList.forEach(function(dataPoint) {
     dataPoint.timestamp = parseDate(dataPoint.timestamp);
 });
 
+
 const timeScale = d3.scaleTime().range([0, width - margin.left - margin.right]).domain(d3.extent(imageList, d => d.timestamp));
 
 
 // color scale
 const colorScale = d3.scaleOrdinal()
-	.range(["#e41a1c", "#377eb8", "#4daf4a", "#984ea3", "#ff7f00", "#ffff33"])
+	.range(['#e41a1c','#377eb8','#4daf4a','#984ea3','#ff7f00','#ffff33','#a65628'])
 	.domain(imageList.map(dataPoint => dataPoint.species));
 
 // force simulation
