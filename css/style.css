@@ -16,8 +16,8 @@ img {
 	transition: 1s;
 }
 
-img:hover {
-	transform:scale(1.2);
+circle:hover {
+	filter:brightness(85%)
 }
 
 .axis { font: 14px sans-serif; }

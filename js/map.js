@@ -63,7 +63,7 @@ var locations = [{
 }];
 
 var basicCircleStyle = {
-    radius: 5,
+    radius: 6,
     fillColor: "#0090c9",
     color: "#0090c9",
     weight: 1,
@@ -73,7 +73,7 @@ var basicCircleStyle = {
 
 
 var clickedCircleStyle = {
-	radius: 5,
+	radius: 7,
     fillColor: "#e55934",
     color: "#e55934",
     weight: 1,

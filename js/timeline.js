@@ -39,7 +39,7 @@ svg.append("g")
 
 // color scale
 const colorScale = d3.scaleOrdinal()
-	.range(['#e41a1c','#377eb8','#4daf4a','#984ea3','#ff7f00','#ffff33','#a65628'])
+	.range(d3.schemeTableau10)
 	.domain(imageList.map(dataPoint => dataPoint.species));
 
 // force simulation
@@ -66,33 +66,35 @@ var points = svg.selectAll("a")
 		.attr("cy", height/2)
 		.attr("fill", d => colorScale(d.species))
 		.attr("stroke", d => d3.rgb(colorScale(d.species)).darker(.1).formatHex())
-		.attr("stroke-width", 1)
+		.attr("stroke-width", 1);
 
 points.transition()
 		.duration(3000)
 		.attr("cx", d => d.x)
-		.attr("cy", d => d.y)
+		.attr("cy", d => d.y);
 
-points.on("mouseover", handleMouseOver);
+points
+	.on("mouseover", handleMouseOver)
+	.on("mouseout", handleMouseOut);
 
 function handleMouseOver() {
-	var thisCircle = d3.select(this.parentNode).datum();
+	var thisCircle = d3.select(this).datum();
 
 	console.log(thisCircle.image);
 
-	d3.select('#hoverimage')
-		.remove()
+	var thisCircle = d3.select(this)
 
-	d3.select("#hovertest")
-		.append("img")
-		.attr("id", "hoverimage")
-		.attr("width", 1196)
-		.attr("src", "images/wildlife/" + thisCircle.location + "//" + thisCircle.image)
-		.style("opacity", 0)
+	thisCircle.transition()
+		.duration(200)
+		.attr("r", 7)
+
+}
+
+function handleMouseOut() {
+	d3.select(this)
 		.transition()
-		.duration(250)
-		.ease(d3.easeLinear)
-		.style("opacity", 1)
+		.duration(200)
+		.attr("r", 6)
 }
 
 function  timelineClickHandler() {
@@ -102,3 +104,34 @@ function  timelineClickHandler() {
 	d3.selectAll("circle")
 		.attr("r", 10)
 }
+
+
+// Legend
+
+var svg_legend = d3.select(".legend")
+	.append("svg")
+	.attr("height", colorScale.domain().length*25 +50)
+	.attr("width", 300)
+	.attr("transform", "translate(" + margin.left + "," + 0 + ")"); 
+
+var legend = svg_legend.selectAll(".legend_entry")
+	.data(colorScale.domain())
+	.enter()
+	.append("g")
+		.attr("class", "legend_entry")
+		.attr("transform", function(d,i) {
+			let vertical_spacing = i*25
+			return "translate(" + 30 + ", " + vertical_spacing + ")";
+		})
+
+legend.append("circle")
+	.attr("r", 6)
+	.attr("cx", 0)
+	.attr("cy", 25)
+	.attr("fill", d => colorScale(d))
+
+
+legend.append("text")
+	.attr("x", 10)
+	.attr("y", 30)
+	.text(d => d)
